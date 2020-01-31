@@ -43,12 +43,13 @@ function digSong(){
     }
     else{
         el.text("I dig it!");
+    }
 
     //change style of parent
     let parent = $(this).parent();
     console.log("hey yo");
     parent.toggleClass("hate");
-    }
+    
 }
 
 function displaySongs(){
