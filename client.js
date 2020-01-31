@@ -7,6 +7,7 @@ let song = [];
 function onReady(){
     console.log("high planes drifter");
     $("#addSongButton").on("click", addSong);
+    $("#songsOut").on("click", ".digButton", digSong);
 }
 
 function addSong(){
@@ -31,14 +32,31 @@ function addSong(){
 
 }
 
+function digSong(){
+    console.log("cool like lemonade");
+    let el = $(this);
 
+
+    // if dig set to hate, other wise set to dig
+    if(el.text() === "I dig it!"){
+            el.text("Hate it!");
+    }
+    else{
+        el.text("I dig it!");
+
+    //change style of parent
+    let parent = $(this).parent();
+    console.log("hey yo");
+    parent.toggleClass("hate");
+    }
+}
 
 function displaySongs(){
     console.log("rolled down my window tand i watched columbo");
     let el = $("#songsOut");
     el.empty();
     for(let i=0; i<song.length; i++){
-        el.append("<li>" + song[i].artist + "; " + song[i].title + "; " + song[i].album + "; " + song[i].year + "  <button class='digButton'>I dig it!</button>" + "</li>");
+        el.append("<li class='dig'>" + song[i].artist + "; " + song[i].title + "; " + song[i].album + "( " + song[i].year + ")" + "  <button class='digButton'>I dig it!</button>" + "</li>");
     }
 }
 
